@@ -66,8 +66,8 @@ export function activate(context: vscode.ExtensionContext) {
 </html>`);
 		createFile("/app.js", `// Start coding here`);
 		createFile("/style.css", `body {
-font-family: Arial, Helvetica, sans-serif;;
-		}`);
+	font-family: Arial, Helvetica, sans-serif;
+}`);
 	});
 
 	context.subscriptions.push(disposable);

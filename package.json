@@ -5,6 +5,7 @@
   "version": "0.0.1",
   "icon": "hewwo-html-logo.png",
   "repository": {"type" : "git", "url" : "https://github.com/rockwillck/hewwo-html"},
+  "publisher": "WilliamChoi-Kim",
   "engines": {
     "vscode": "^1.81.0"
   },
