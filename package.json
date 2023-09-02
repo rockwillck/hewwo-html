@@ -1,8 +1,10 @@
 {
   "name": "hewwo-html",
   "displayName": "Hewwo HTML",
-  "description": "",
+  "description": "A simple but robust HTML boilerplate generator.",
   "version": "0.0.1",
+  "icon": "hewwo-html-logo.png",
+  "repository": {"type" : "git", "url" : "https://github.com/rockwillck/hewwo-html"},
   "engines": {
     "vscode": "^1.81.0"
   },
