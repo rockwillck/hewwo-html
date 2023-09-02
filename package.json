@@ -2,9 +2,12 @@
   "name": "hewwo-html",
   "displayName": "Hewwo HTML",
   "description": "A simple but robust HTML boilerplate generator.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "icon": "hewwo-html-logo.png",
-  "repository": {"type" : "git", "url" : "https://github.com/rockwillck/hewwo-html"},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rockwillck/hewwo-html"
+  },
   "publisher": "WilliamChoi-Kim",
   "engines": {
     "vscode": "^1.81.0"
