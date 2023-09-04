@@ -13,14 +13,14 @@ function createFile(fileName: string, content: string) {
 	});
 }
 
-// function enterText(text: string) {
-//     const editor = vscode.window.activeTextEditor;
-//     if (editor) {
-//         editor.edit(editBuilder => {
-//             editBuilder.insert(editor.selection.active, text);
-//         });
-//     }
-// }
+function enterText(text: string) {
+    const editor = vscode.window.activeTextEditor;
+    if (editor) {
+        editor.edit(editBuilder => {
+            editBuilder.insert(editor.selection.active, text);
+        });
+    }
+}
 
 // function createFile(path: string) {
 // 	const wsedit = new vscode!.WorkspaceEdit();
@@ -38,15 +38,8 @@ export function activate(context: vscode.ExtensionContext) {
 	// This line of code will only be executed once when your extension is activated
 	console.log('Congratulations, your extension "hewwo-html" is now active!');
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('hewwo-html.addBoilerplate', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Okie!');
 
-		createFile("/index.html", `<!DOCTYPE html>
+	const htmlBoilerplate = `<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
@@ -63,14 +56,54 @@ export function activate(context: vscode.ExtensionContext) {
 	</footer>
 	<script src="app.js"></script>
 </body>
-</html>`);
-		createFile("/app.js", `// Start coding here`);
-		createFile("/style.css", `body {
+</html>`;
+	const jsBoilerplate = `// Start coding here`;
+	const cssBoilerplate = `body {
 	font-family: Arial, Helvetica, sans-serif;
-}`);
+}`;
+	// The command has been defined in the package.json file
+	// Now provide the implementation of the command with registerCommand
+	// The commandId parameter must match the command field in package.json
+	let disposable = vscode.commands.registerCommand('hewwo-html.addBoilerplate', () => {
+		// The code you place here will be executed every time your command is executed
+		// Display a message box to the user
+		vscode.window.showInformationMessage('Okie!');
+
+		createFile("/index.html", htmlBoilerplate);
+		createFile("/app.js", jsBoilerplate);
+		createFile("/style.css", cssBoilerplate);
+	});
+
+	let htmlDisposable = vscode.commands.registerCommand('hewwo-html.addHTML', () => {
+		// The code you place here will be executed every time your command is executed
+		// Display a message box to the user
+		vscode.window.showInformationMessage('Okie!');
+
+		createFile("/index.html", htmlBoilerplate);
+	});
+
+	let fillDisposable = vscode.commands.registerCommand('hewwo-html.fill', () => {
+		let suffixs = vscode.window.activeTextEditor!.document.fileName.split(".");
+		let suffix = suffixs[suffixs.length - 1];
+
+		switch (suffix) {
+			case "html":
+				enterText(htmlBoilerplate);
+				break;
+			case "css":
+				enterText(cssBoilerplate);
+				break;
+			case "js":
+				enterText(jsBoilerplate);
+				break;
+			default:
+				vscode.window.showInformationMessage("This file type is not supported");
+		}
 	});
 
 	context.subscriptions.push(disposable);
+	context.subscriptions.push(htmlDisposable);
+	context.subscriptions.push(fillDisposable);
 }
 
 // This method is called when your extension is deactivated

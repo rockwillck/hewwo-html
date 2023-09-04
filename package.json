@@ -22,6 +22,14 @@
       {
         "command": "hewwo-html.addBoilerplate",
         "title": "Add Boilerplate"
+      },
+      {
+        "command": "hewwo-html.addHTML",
+        "title": "Create HTML file with boilerplate"
+      },
+      {
+        "command": "hewwo-html.fill",
+        "title": "Fill file with boilerplate"
       }
     ]
   },
