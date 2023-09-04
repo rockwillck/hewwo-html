@@ -2,7 +2,7 @@
   "name": "hewwo-html",
   "displayName": "Hewwo HTML",
   "description": "A simple but robust HTML boilerplate generator.",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "icon": "hewwo-html-logo.png",
   "repository": {
     "type": "git",
